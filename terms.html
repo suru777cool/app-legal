@@ -1,71 +1,292 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Service</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The rules for using the app, how coins and subscriptions work, what users are responsible for, and the legal terms that apply to the service." />
+  
+<style>
+  :root{
+    --bg:#0f1115;
+    --panel:#171a21;
+    --panel-2:#1d2230;
+    --text:#eef2ff;
+    --muted:#b6bfd6;
+    --line:#2a3144;
+    --primary:#ff6b4a;
+    --accent:#ffd27a;
+    --success:#7bc96f;
+    --max:980px;
+    --radius:22px;
+    --shadow:0 10px 30px rgba(0,0,0,.28);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(255,107,74,.18), transparent 28%),
+      radial-gradient(circle at top right, rgba(255,210,122,.10), transparent 24%),
+      linear-gradient(180deg, #0f1115 0%, #10131a 100%);
+    color:var(--text);
+    line-height:1.7;
+  }
+  a{color:inherit}
+  .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+  .nav{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:16px 0 8px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px; text-decoration:none;
+  }
+  .logo{
+    width:42px; height:42px; border-radius:14px;
+    background:linear-gradient(135deg, var(--primary), var(--accent));
+    box-shadow:var(--shadow);
+    display:grid; place-items:center; color:#1a120f; font-weight:800;
+  }
+  .brand h1{
+    font-size:1rem; margin:0; line-height:1.1;
+  }
+  .brand p{margin:0; color:var(--muted); font-size:.9rem}
+  .navlinks{display:flex; gap:10px; flex-wrap:wrap}
+  .btn{
+    text-decoration:none; border:1px solid var(--line); color:var(--text);
+    background:rgba(255,255,255,.02); padding:10px 14px; border-radius:999px;
+    font-size:.95rem;
+  }
+  .btn.primary{
+    background:linear-gradient(135deg, var(--primary), #ff8a64);
+    border:none; color:#180f0d; font-weight:700;
+  }
+  .hero{
+    margin-top:18px;
+    padding:34px;
+    border:1px solid rgba(255,255,255,.08);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
+      linear-gradient(135deg, rgba(255,107,74,.14), rgba(255,210,122,.06));
+    border-radius:32px;
+    box-shadow:var(--shadow);
+  }
+  .eyebrow{
+    display:inline-flex; gap:8px; align-items:center;
+    padding:8px 12px; border-radius:999px;
+    background:rgba(255,255,255,.05); color:var(--muted); font-size:.9rem;
+    border:1px solid rgba(255,255,255,.07);
+  }
+  .hero h2{
+    margin:16px 0 10px;
+    font-size:clamp(2rem, 4vw, 3.4rem);
+    line-height:1.06;
+    letter-spacing:-.03em;
+  }
+  .hero p{margin:0; max-width:760px; color:var(--muted); font-size:1.05rem}
+  .meta{
+    margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;
+  }
+  .pill{
+    padding:10px 14px; border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.03);
+    color:var(--muted); font-size:.95rem;
+  }
+  .content{
+    display:grid; grid-template-columns: 240px minmax(0,1fr); gap:24px;
+    margin-top:26px;
+  }
+  .toc, .card, .footer{
+    border:1px solid rgba(255,255,255,.08);
+    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    border-radius:24px;
+    box-shadow:var(--shadow);
+  }
+  .toc{
+    padding:18px; position:sticky; top:18px; height:fit-content;
+  }
+  .toc h3{
+    margin:0 0 10px; font-size:1rem;
+  }
+  .toc a{
+    display:block; color:var(--muted); text-decoration:none;
+    padding:9px 10px; border-radius:12px; margin:4px 0;
+  }
+  .toc a:hover{background:rgba(255,255,255,.05); color:var(--text)}
+  .card{padding:28px}
+  section{
+    padding:18px 0 12px; border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  section:last-child{border-bottom:none}
+  h3{
+    font-size:1.35rem; margin:0 0 8px; letter-spacing:-.02em;
+  }
+  h4{margin:16px 0 8px; font-size:1.03rem}
+  p{margin:10px 0; color:var(--muted)}
+  ul{margin:10px 0 0 20px; color:var(--muted)}
+  li{margin:7px 0}
+  .note{
+    margin-top:14px; padding:14px 16px; border-radius:16px;
+    background:rgba(123,201,111,.08);
+    border:1px solid rgba(123,201,111,.18);
+    color:#d8f5d1;
+  }
+  .warn{
+    margin-top:14px; padding:14px 16px; border-radius:16px;
+    background:rgba(255,210,122,.08);
+    border:1px solid rgba(255,210,122,.18);
+    color:#ffe8b2;
+  }
+  .footer{
+    margin:28px 0 34px; padding:22px 24px;
+    display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  }
+  .footer p{margin:0}
+  .small{font-size:.94rem}
+  code.inline{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    padding:2px 8px; border-radius:8px; color:var(--text)
+  }
+  @media (max-width: 860px){
+    .content{grid-template-columns:1fr}
+    .toc{position:static}
+    .hero{padding:24px}
+  }
+</style>
+
 </head>
-<body style="font-family: Arial; max-width: 900px; margin: auto; padding: 20px; line-height: 1.7;">
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="terms.html">
+        <div class="logo">AI</div>
+        <div>
+          <h1>Photo Restore Legal</h1>
+          <p>Clear, premium legal pages</p>
+        </div>
+      </a>
+      <div class="navlinks">
+        <a class="btn" href="privacy-policy.html">Privacy Policy</a>
+        <a class="btn primary" href="mailto:help@bluepointer.in">Contact Support</a>
+      </div>
+    </div>
 
-<h1>Terms of Service</h1>
-<p><strong>Last Updated:</strong> April 2026</p>
+    <div class="hero">
+      <span class="eyebrow">Legal Information</span>
+      <h2>Terms of Service</h2>
+      <p>The rules for using the app, how coins and subscriptions work, what users are responsible for, and the legal terms that apply to the service.</p>
+      <div class="meta">
+        <div class="pill">Last updated: April 13, 2026</div>
+        <div class="pill">Support: help@bluepointer.in</div>
+        <div class="pill">Separate legal page</div>
+      </div>
+    </div>
 
-<p>By using this application, you agree to the following terms.</p>
+    <div class="content">
+      <aside class="toc">
+        <h3>On this page</h3>
+        <a href="#s1">1. Acceptance of Terms</a>
+<a href="#s2">2. Description of the Service</a>
+<a href="#s3">3. Eligibility</a>
+<a href="#s4">4. Accounts, Access, and Service Availability</a>
+<a href="#s5">5. User Content and Permissions</a>
+<a href="#s6">6. Licence to Operate the Service</a>
+<a href="#s7">7. Coins, Virtual Items, and Purchases</a>
+<a href="#s8">8. Subscriptions</a>
+<a href="#s9">9. Acceptable Use</a>
+<a href="#s10">10. Third-Party Services</a>
+<a href="#s11">11. Intellectual Property</a>
+<a href="#s12">12. Disclaimers</a>
+<a href="#s13">13. Limitation of Liability</a>
+<a href="#s14">14. Indemnity</a>
+<a href="#s15">15. Termination</a>
+<a href="#s16">16. Governing Law and Disputes</a>
+<a href="#s17">17. Changes to the Terms</a>
+<a href="#s18">18. Contact Us</a>
+      </aside>
 
-<h2>1. Description of Service</h2>
-<p>This app provides AI-powered image processing features including restoration, enhancement, and colorization.</p>
-
-<h2>2. Eligibility</h2>
-<p>You must be at least 13 years old to use this app.</p>
-
-<h2>3. User Content</h2>
-<p>You retain ownership of your images. You agree that:</p>
-<ul>
-<li>You have rights to use uploaded content</li>
-<li>The content does not violate laws or third-party rights</li>
-</ul>
-
-<h2>4. Image Processing</h2>
-<p>Images are processed temporarily using AI services and are not stored permanently.</p>
-
-<h2>5. Coins and Payments</h2>
-<ul>
-<li>The app uses a coin-based system</li>
-<li>Coins can be purchased or granted</li>
-<li>Coins are non-refundable unless required by law</li>
-</ul>
-
-<h2>6. Subscriptions</h2>
-<p>If applicable:</p>
-<ul>
-<li>Subscriptions auto-renew unless cancelled</li>
-<li>Billing is handled by Apple or Google</li>
-<li>You can manage subscriptions in your account settings</li>
-</ul>
-
-<h2>7. Acceptable Use</h2>
+      <main class="card">
+        <section id="s1">
+<h3>1. Acceptance of Terms</h3>
+<p>By downloading, accessing, or using this application, you agree to be bound by these Terms of Service. If you do not agree, do not use the app.</p>
+</section><section id="s2">
+<h3>2. Description of the Service</h3>
+<p>The app provides AI-powered image processing features, which may include photo restoration, colourisation, image enhancement, scratch removal, and face restoration. Features may change over time.</p>
+<div class="warn">AI-generated outputs can vary. Results are not guaranteed to be accurate, perfect, or suitable for every image.</div>
+</section><section id="s3">
+<h3>3. Eligibility</h3>
+<p>You must be at least 13 years old, or the minimum age required in your jurisdiction, to use the app. If you are under the age required to form a binding agreement, you may use the app only with appropriate permission from a parent or legal guardian where allowed by law.</p>
+</section><section id="s4">
+<h3>4. Accounts, Access, and Service Availability</h3>
+<p>The app may use anonymous or device-linked access methods rather than traditional named accounts. You are responsible for maintaining access to your device, local app data, and any purchase restore mechanisms available through Apple or Google.</p>
+<p>We may modify, suspend, or discontinue all or part of the service at any time, with or without notice, to the extent permitted by law.</p>
+</section><section id="s5">
+<h3>5. User Content and Permissions</h3>
+<p>You retain ownership of images you submit. You represent and warrant that you have all rights, permissions, and legal authority necessary to upload, process, edit, and use the images and any resulting outputs.</p>
+<ul><li>You must not upload content that infringes intellectual property rights, privacy rights, publicity rights, or any other rights of others.</li><li>You must not upload illegal, abusive, exploitative, hateful, deceptive, or otherwise unlawful content.</li><li>You are responsible for the content you submit and the outputs you use or share.</li></ul>
+</section><section id="s6">
+<h3>6. Licence to Operate the Service</h3>
+<p>You grant us a limited, non-exclusive, revocable permission to process submitted content solely as necessary to operate, maintain, secure, and improve the requested app functionality and related services.</p>
+</section><section id="s7">
+<h3>7. Coins, Virtual Items, and Purchases</h3>
+<p>The app may use a coin-based or credit-based system to access certain features.</p>
+<ul><li>Coins, credits, and virtual items have no cash value and are not property.</li><li>They are non-transferable, non-exchangeable, and may not be redeemed for cash except where required by law.</li><li>Purchased or granted coins may be consumed when you request eligible processing actions.</li><li>We may change pricing, coin requirements, packages, or promotional offers at any time.</li></ul>
+<div class="warn">All purchases are generally final and non-refundable except where refunds are required by Apple, Google, or applicable law.</div>
+</section><section id="s8">
+<h3>8. Subscriptions</h3>
+<p>If the app offers subscriptions, billing, renewal, cancellation, refunds, and account management are handled by the applicable platform provider such as Apple or Google.</p>
+<ul><li>Subscriptions automatically renew unless cancelled before the renewal date.</li><li>You can manage or cancel subscriptions through your Apple App Store or Google Play account settings.</li><li>If a free trial is offered and you do not cancel before the trial ends, the subscription may automatically convert into a paid subscription.</li></ul>
+</section><section id="s9">
+<h3>9. Acceptable Use</h3>
 <p>You agree not to:</p>
-<ul>
-<li>Upload illegal or harmful content</li>
-<li>Exploit the system or abuse resources</li>
-</ul>
+<ul><li>Use the app in violation of any law or regulation.</li><li>Attempt to reverse engineer, disrupt, overload, or interfere with the app or connected services.</li><li>Circumvent usage controls, coin systems, subscriptions, rate limits, or security protections.</li><li>Use the app to create, process, or distribute unlawful or harmful material.</li><li>Use automated scripts, bots, or scraping methods except where explicitly authorised.</li></ul>
+</section><section id="s10">
+<h3>10. Third-Party Services</h3>
+<p>The app depends on third-party providers including but not limited to Firebase, Replicate, PostHog, and Google Analytics. Their services may affect availability, performance, or feature delivery. We are not responsible for outages, delays, errors, policy changes, or actions caused by third-party services.</p>
+</section><section id="s11">
+<h3>11. Intellectual Property</h3>
+<p>The app, including its software, branding, interface, text, design, graphics, and related materials, is owned by us or our licensors and is protected by applicable intellectual property laws. Except for rights expressly granted to you, all rights are reserved.</p>
+</section><section id="s12">
+<h3>12. Disclaimers</h3>
+<p>The app and all related services are provided on an as is and as available basis to the fullest extent permitted by law. We disclaim all warranties, express, implied, or statutory, including warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, reliability, or uninterrupted availability.</p>
+<div class="note">This is especially important for AI outputs, which may contain errors, distortions, omissions, or results that do not meet expectations.</div>
+</section><section id="s13">
+<h3>13. Limitation of Liability</h3>
+<p>To the fullest extent permitted by law, we are not liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for loss of profits, revenue, data, goodwill, business opportunities, or device content arising out of or related to your use of the app.</p>
+<p>Where liability cannot be excluded, our total liability will be limited to the amount you paid for the app or related services in the twelve months before the event giving rise to the claim, or the minimum amount required by law, whichever is greater.</p>
+</section><section id="s14">
+<h3>14. Indemnity</h3>
+<p>You agree to defend, indemnify, and hold us harmless from claims, liabilities, damages, losses, and expenses arising out of your content, your misuse of the app, your violation of these Terms, or your violation of any rights of another person or entity, to the extent permitted by law.</p>
+</section><section id="s15">
+<h3>15. Termination</h3>
+<p>We may suspend or terminate your access to the app if we reasonably believe you have violated these Terms, misused the service, created security risks, committed fraud, or caused harm to the platform, other users, or service providers.</p>
+<p>Termination does not affect rights or obligations that by their nature should survive termination, including provisions relating to payments, intellectual property, disclaimers, liability limits, and dispute-related terms.</p>
+</section><section id="s16">
+<h3>16. Governing Law and Disputes</h3>
+<p>These Terms are governed by applicable laws as determined by your jurisdiction and any mandatory consumer protection laws that apply to you. Where allowed by law, disputes will be handled in the appropriate courts of the relevant jurisdiction.</p>
+</section><section id="s17">
+<h3>17. Changes to the Terms</h3>
+<p>We may revise these Terms from time to time. Updated Terms will be posted on this page with a revised last updated date. Continued use of the app after changes become effective means you accept the revised Terms.</p>
+</section><section id="s18">
+<h3>18. Contact Us</h3>
+<p>For support, legal questions, or concerns about these Terms, contact help@bluepointer.in.</p>
+</section>
+      </main>
+    </div>
 
-<h2>8. Third-Party Services</h2>
-<p>The app uses external services including Firebase, Replicate, and analytics tools.</p>
-
-<h2>9. Disclaimer</h2>
-<p>The service is provided "as is" without warranties.</p>
-
-<h2>10. Limitation of Liability</h2>
-<p>We are not liable for any indirect damages or data loss.</p>
-
-<h2>11. Termination</h2>
-<p>We may suspend access if terms are violated.</p>
-
-<h2>12. Changes to Terms</h2>
-<p>We may update these terms at any time.</p>
-
-<h2>13. Contact</h2>
-<p>Email: help@bluepointer.in</p>
-
+    <div class="footer">
+      <div>
+        <p><strong>Support</strong></p>
+        <p class="small">For legal or privacy questions, contact help@bluepointer.in</p>
+      </div>
+      <div class="navlinks">
+        <a class="btn" href="terms.html">Terms of Service</a>
+        <a class="btn" href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
